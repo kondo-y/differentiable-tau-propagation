@@ -10,7 +10,7 @@ This repository provides a **minimal, self-contained implementation** of the cor
 
 This repository focuses on methodological contributions of the paper:
 
-* Differentiable reaction–diffusion simulation
+* Differentiable reaction–diffusion simulation of prion-like propagation
 * MRI-informed model parametrization
 * GPU-accelerated implementation using JAX
 * End-to-end differentiability for gradient-based optimization
