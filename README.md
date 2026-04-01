@@ -1,5 +1,4 @@
 # Differentiable Tau Propagation (Minimal Release)
-Differentiable reaction–diffusion simulator for inferring spatially resolved tau amplification rates from PET
 
 This repository provides a **minimal, self-contained implementation** of the core computational framework introduced in our preprint:
 
