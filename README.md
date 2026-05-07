@@ -1,6 +1,6 @@
 # Differentiable Tau Propagation (Minimal Release)
 
-This repository provides a **minimal, self-contained implementation** of the core computational framework introduced in our preprint:
+This repository provides a **minimal, self-contained implementation** of the core computational framework introduced in our manuscript/preprint:
 
 > *Spatially resolved mapping of tau amplification rates via differentiable simulation of prion-like propagation*
 
@@ -16,8 +16,7 @@ This repository focuses on methodological contributions of the paper:
 * End-to-end differentiability for gradient-based optimization
 
 Due to the use of restricted neuroimaging datasets (e.g., ADNI), reproducing the complete analysis pipeline requires controlled data access.
-Instead, this repository exposes the core computational components.
-We believe the transparency is useful for evaluating the methodological contribution of the work.
+Instead, this release is intended to facilitate evaluation and reuse of the core methodological components of the work.
 
 ---
 
@@ -35,7 +34,7 @@ We believe the transparency is useful for evaluating the methodological contribu
 
 ---
 
-## What is NOT included (yet)
+## What is not included
 
 The following components depend on restricted datasets (e.g., ADNI) and are **not included in this release**:
 
@@ -43,7 +42,7 @@ The following components depend on restricted datasets (e.g., ADNI) and are **no
 * Subject-level parameter inference scripts
 * Full training / optimization pipeline used in the paper
 
-Some of these components will be released upon publication, subject to data sharing policies.
+Additional components may be released in future versions, subject to data-sharing agreements and institutional policies.
 
 ---
 
@@ -60,12 +59,10 @@ To reproduce the full analysis:
 
 ## Citation
 
-(The preprint below is not posted yet)
-
-If you use this code, please cite:
+A formal citation will be added once the manuscript/preprint is available.
 
 ```
-Kondo, Y., Naoki, H.
+Kondo, Y., Honda, N.
 Spatially resolved mapping of tau amplification rates via differentiable simulation of prion-like propagation
 (preprint)
 ```
