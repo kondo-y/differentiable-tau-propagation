@@ -59,13 +59,22 @@ To reproduce the full analysis:
 
 ## Citation
 
-A formal citation will be added once the manuscript/preprint is available.
+If you use this code, please cite our preprint:
 
-```
-Kondo, Y., Honda, N.
-Spatially resolved mapping of tau amplification rates via differentiable simulation of prion-like propagation
-(preprint)
-```
+Kondo, Y., Honda, N., for the Alzheimer's Disease Neuroimaging Initiative.  
+Spatially resolved mapping of tau amplification rates via differentiable simulation of prion-like propagation.  
+bioRxiv, 2026.  
+https://www.biorxiv.org/content/10.64898/2026.06.02.729568v1
+
+```bibtex
+@article{kondo2026tauamplification,
+  title = {Spatially resolved mapping of tau amplification rates via differentiable simulation of prion-like propagation},
+  author = {Kondo, Yohei and Honda, Naoki and {{for the Alzheimer's Disease Neuroimaging Initiative}}},
+  journal = {bioRxiv},
+  year = {2026},
+  doi = {10.64898/2026.06.02.729568},
+  url = {https://www.biorxiv.org/content/10.64898/2026.06.02.729568v1}
+}
 
 ---
 
