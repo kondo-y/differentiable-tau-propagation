@@ -67,7 +67,7 @@ bioRxiv, 2026.
 https://www.biorxiv.org/content/10.64898/2026.06.02.729568v1
 
 ```bibtex
-@article{kondo2026tauamplification,
+@article{kondo2026differentiabletau,
   title = {Spatially resolved mapping of tau amplification rates via differentiable simulation of prion-like propagation},
   author = {Kondo, Yohei and Honda, Naoki and {{for the Alzheimer's Disease Neuroimaging Initiative}}},
   journal = {bioRxiv},
