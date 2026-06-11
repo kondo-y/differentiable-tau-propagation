@@ -1,29 +1,27 @@
-# Differentiable Tau Propagation (Minimal Release)
+# Differentiable Tau Propagation
 
-This repository provides a **minimal, self-contained implementation** of the core computational framework introduced in our manuscript/preprint:
+A JAX-based differentiable reaction–diffusion framework for spatially resolved mapping of tau amplification rates from PET data.
+This repository accompanies the manuscript/preprint:
 
-> *Spatially resolved mapping of tau amplification rates via differentiable simulation of prion-like propagation*
+**Spatially resolved mapping of tau amplification rates via differentiable simulation of prion-like propagation**
 
 ---
 
 ## Overview
 
-This repository focuses on methodological contributions of the paper:
+The repository includes the core methodological components of the paper:
 
 * Differentiable reaction–diffusion simulation of prion-like propagation
 * MRI-informed model parametrization
 * GPU-accelerated implementation using JAX
 * End-to-end differentiability for gradient-based optimization
 
-Due to the use of restricted neuroimaging datasets (e.g., ADNI), reproducing the complete analysis pipeline requires controlled data access.
-Instead, this release is intended to facilitate evaluation and reuse of the core methodological components of the work.
-
 ---
 
 ## What is included
 
 * `simndd/`
-  Core library implementing the differentiable reaction–diffusion simulator
+  contains the core implementation for setting up MRI-informed reaction–diffusion models, running numerical simulations, and optimizing model parameters by backpropagating errors through the differentiable simulator.
 
 * `forward_simulation.ipynb`
   A minimal demonstration of:
@@ -34,26 +32,15 @@ Instead, this release is intended to facilitate evaluation and reuse of the core
 
 ---
 
-## What is not included
+## Data and code availability
 
-The following components depend on restricted datasets (e.g., ADNI) and are **not included in this release**:
+This repository provides the core computational components of the differentiable tau propagation framework, including differentiable reaction–diffusion simulation and example workflows for running the model.
 
-* Tau PET data processing pipeline
-* Subject-level parameter inference scripts
-* Full training / optimization pipeline used in the paper
+The original study used processed tau PET data from the Alzheimer's Disease Neuroimaging Initiative (ADNI). These imaging data are subject to ADNI data use agreements and are not redistributed in this repository.
 
-Additional components may be released in future versions, subject to data-sharing agreements and institutional policies.
+Accordingly, this repository does not include ADNI-specific data processing scripts or subject-level batch analysis files that depend directly on restricted imaging data. To reproduce the full ADNI analysis, users should apply for access through ADNI and follow the preprocessing and analysis procedures described in the paper.
 
----
-
-## Data availability
-
-The original study uses data from , which is subject to data use agreements.
-
-To reproduce the full analysis:
-
-* Apply for access via: https://adni.loni.usc.edu/
-* Follow preprocessing steps described in the paper
+The code in this repository is intended to make the computational framework transparent and reusable independently of the restricted ADNI dataset.
 
 ---
 
