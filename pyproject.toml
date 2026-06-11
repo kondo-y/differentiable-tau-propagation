@@ -1,0 +1,31 @@
+[build-system]
+requires = ["setuptools>=69", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "differentiable-tau-propagation"
+version = "0.1.0"
+description = "A JAX-based differentiable reaction-diffusion framework for spatially resolved tau amplification-rate inference from PET data."
+readme = "README.md"
+requires-python = ">=3.10"
+license = { file = "LICENSE" }
+authors = [
+    { name = "Yohei Kondo" }
+]
+dependencies = [
+    "jax>=0.4.26",
+    "jaxlib>=0.4.26",
+    "numpy>=1.24",
+    "scipy>=1.10",
+    "matplotlib>=3.7",
+    "equinox>=0.11"
+]
+
+[project.optional-dependencies]
+notebooks = [
+    "jupyterlab",
+    "ipykernel"
+]
+
+[tool.setuptools.packages.find]
+include = ["simndd*"]
