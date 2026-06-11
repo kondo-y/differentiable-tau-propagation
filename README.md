@@ -5,6 +5,8 @@ This repository accompanies the manuscript/preprint:
 
 **Spatially resolved mapping of tau amplification rates via differentiable simulation of prion-like propagation**
 
+![Graphical Abstract](images/GA_v1.png)
+
 ---
 
 ## Overview
