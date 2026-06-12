@@ -17,6 +17,7 @@ venv/
 # Local scratch files
 scratch/
 outputs/
+inputs/
 
 # Large files
 *.pt

@@ -107,20 +107,41 @@ def batched_alpha_loss_and_grad(alpha, prion_init, pet_atlases, phi, args, dt, d
 
 
 #
-# Code below is for record-keeping and not the part of the main functionality
+# Code below is for voxelwise error-based loss functions, which are currently used only for synthetic data where the target is expected in voxel space, not in atlas space.
 #
-def pet_loss_squared_voxelwise_error(prion0, prion1, phi, alpha, args, dt, dx, length, update_func):
+
+def squared_voxelwise_error(prion0, prion1, phi, alpha, args, dt, dx, length, update_func):
     prion1_pred = eqxi_scan_update_func(prion0, phi, [*args, alpha], dt, dx, length, update_func)
     return jnp.sum((prion1_pred - prion1)**2)#np.mean((prion1_pred - prion1)**2)
 
 
-def pet_loss_root_squared_voxelwise_error(prion0, prion1, phi, alpha, args, dt, dx, length, update_func):
+def squared_voxelwise_error_on_phase(prion0, prion1, phi, alpha, args, dt, dx, length, update_func):
+    """Squared error in prion*phi space (target is expected in prion*phi space)."""
+    prion1_pred = eqxi_scan_update_func(prion0, phi, [*args, alpha], dt, dx, length, update_func)
+    return jnp.sum((prion1_pred * phi - prion1)**2)
+
+
+def root_squared_voxelwise_error(prion0, prion1, phi, alpha, args, dt, dx, length, update_func):
     prion1_pred = eqxi_scan_update_func(prion0, phi, [*args, alpha], dt, dx, length, update_func)
     err = jnp.sum((prion1_pred - prion1)**2)
     return jnp.sqrt(err)
 
 
-def pet_loss_squared_voxelwise_error_only_roi(prion0, prion1, phi, alpha, args, dt, dx, length, update_func, mask_roi):
+def root_squared_voxelwise_error_on_phase(prion0, prion1, phi, alpha, args, dt, dx, length, update_func):
+    """Root squared error in prion*phi space (target is expected in prion*phi space)."""
+    prion1_pred = eqxi_scan_update_func(prion0, phi, [*args, alpha], dt, dx, length, update_func)
+    err = jnp.sum((prion1_pred * phi - prion1)**2)
+    return jnp.sqrt(err)
+
+
+def masked_squared_voxelwise_error(prion0, prion1, phi, alpha, args, dt, dx, length, update_func, mask_roi):
     prion1_pred = eqxi_scan_update_func(prion0, phi, [*args, alpha], dt, dx, length, update_func)
     err = (prion1_pred - prion1)**2
+    return jnp.where(mask_roi, err, 0).sum()
+
+
+def masked_squared_voxelwise_error_on_phase(prion0, prion1, phi, alpha, args, dt, dx, length, update_func, mask_roi):
+    """Masked squared error in prion*phi space (target is expected in prion*phi space)."""
+    prion1_pred = eqxi_scan_update_func(prion0, phi, [*args, alpha], dt, dx, length, update_func)
+    err = (prion1_pred * phi - prion1)**2
     return jnp.where(mask_roi, err, 0).sum()
