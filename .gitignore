@@ -13,7 +13,14 @@ venv/
 # OS
 .DS_Store
 
+# Local scratch files
+scratch/
+outputs/
+
 # Large files
 *.pt
 *.npy
 *.npz
+
+# Keep demo data
+!examples/data/
