@@ -6,6 +6,7 @@ __pycache__/
 .ipynb_checkpoints/
 
 # Environment
+*.egg-info/
 .env
 .venv/
 venv/
