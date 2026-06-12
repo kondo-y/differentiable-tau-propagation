@@ -25,12 +25,19 @@ The repository includes the core methodological components of the paper:
 * `simndd/`
   contains the core implementation for setting up MRI-informed reaction–diffusion models, running numerical simulations, and optimizing model parameters by backpropagating errors through the differentiable simulator.
 
-* `forward_simulation.ipynb`
+* `examples/forward_simulation.ipynb`
   A minimal demonstration of:
 
   * Processing of neuroimages for model parametrization
   * Forward simulation of tau propagation
   * Visualization of spatiotemporal dynamics
+
+* `examples/synthetic_alpha_recovery.ipynb`  
+  A self-contained synthetic example for testing the framework without external human neuroimaging data or a high-end GPU. This notebook constructs a simple synthetic brain geometry, gray and white matter masks, and an idealized diffusion tensor field, then demonstrates:
+
+  * Forward reaction–diffusion simulation on synthetic neuroimaging inputs
+  * Generation of a synthetic target tau pattern
+  * Gradient-based recovery of the spatial amplification-rate map `alpha`
 
 ---
 
@@ -51,6 +58,20 @@ pip install -e ".[notebooks]"
 ```
 
 If you need a different JAX build for your environment (e.g. hardware, operating system, and CUDA version), install JAX first following the official JAX instructions, then install this package.
+
+---
+
+## Basic example
+
+To make the framework easy to test without external human neuroimaging data, we provide a self-contained demo notebook using synthetic brain images:
+
+`examples/synthetic_alpha_recovery.ipynb`
+
+This example does not require MRI, PET, or a high-end GPU. Instead, it constructs a simple synthetic brain geometry, synthetic gray and white matter masks, and an idealized diffusion tensor field, and then runs the differentiable reaction–diffusion simulation and inference workflow. Although this validation uses a deliberately simple synthetic-brain geometry, it allows users to test the core components of the framework.
+
+Approximate runtime: about 10 minutes on a 3.2 GHz 16-core Intel Xeon W CPU.
+
+![Basic example from synthetic brain images](images/demo_synthetic_alpha_recovery.png)
 
 ---
 
