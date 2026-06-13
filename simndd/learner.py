@@ -121,17 +121,23 @@ def squared_voxelwise_error_on_phase(prion0, prion1, phi, alpha, args, dt, dx, l
     return jnp.sum((prion1_pred * phi - prion1)**2)
 
 
-def root_squared_voxelwise_error(prion0, prion1, phi, alpha, args, dt, dx, length, update_func):
+def root_sum_of_squared_voxelwise_error(prion0, prion1, phi, alpha, args, dt, dx, length, update_func):
     prion1_pred = eqxi_scan_update_func(prion0, phi, [*args, alpha], dt, dx, length, update_func)
     err = jnp.sum((prion1_pred - prion1)**2)
-    return jnp.sqrt(err)
+    return jnp.sqrt(err + 1e-8)# add small constant to avoid sqrt(0) which can cause NaN in grad
 
 
-def root_squared_voxelwise_error_on_phase(prion0, prion1, phi, alpha, args, dt, dx, length, update_func):
+def root_sum_of_squared_voxelwise_error_on_phase(prion0, prion1, phi, alpha, args, dt, dx, length, update_func):
     """Root squared error in prion*phi space (target is expected in prion*phi space)."""
     prion1_pred = eqxi_scan_update_func(prion0, phi, [*args, alpha], dt, dx, length, update_func)
     err = jnp.sum((prion1_pred * phi - prion1)**2)
-    return jnp.sqrt(err)
+    return jnp.sqrt(err + 1e-8)# add small constant to avoid sqrt(0) which can cause NaN in grad
+
+
+def absolute_voxelwise_error_on_phase(prion0, prion1, phi, alpha, args, dt, dx, length, update_func):
+    prion1_pred = eqxi_scan_update_func(prion0, phi, [*args, alpha], dt, dx, length, update_func)
+    err = jnp.sum(jnp.abs(prion1_pred * phi - prion1))
+    return err
 
 
 def masked_squared_voxelwise_error(prion0, prion1, phi, alpha, args, dt, dx, length, update_func, mask_roi):

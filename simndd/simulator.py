@@ -62,9 +62,9 @@ def jax_diffusion_on_phase_forward_backward(phi, C, D):
 
 def jax_diffusion_on_phase_flux_based(phi, C, D):
     #
-    # Computing numerical flux for both diagonal diffusion and cross diffusion
-    # Interpolation of diffusion coeff at virtual interface gird may use
-    # harmonic mean (See Ch 4, Pataskar, Numerical heat transfer and fluid flow, 1980)
+    # Compute numerical fluxes for diagonal and cross-diffusion terms.
+    # Interface diffusion coefficients may be interpolated using the harmonic mean
+    # # (see Patankar, Numerical Heat Transfer and Fluid Flow, Ch. 4, 1980).
     # 2024.11.1
     # Harmonic mean for cross diffusion coeffs is problematic,
     # because cross diffusion coeffs can be negative.
