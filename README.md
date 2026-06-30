@@ -54,7 +54,7 @@ git clone https://github.com/kondo-y/differentiable-tau-propagation.git
 cd differentiable-tau-propagation
 
 pip install "numpy<2" "jax==0.4.26" "jaxlib==0.4.26" "equinox==0.11.4"
-pip install -e ".[notebooks]"
+pip install ".[notebooks]"
 ```
 
 If you need a different JAX build for your environment (e.g. hardware, operating system, and CUDA version), install JAX first following the official JAX instructions, then install this package.
